@@ -1,0 +1,92 @@
+:root {
+    --text-light: #000000;
+    --text-white: #fff;
+}
+html {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-white);
+}
+.page-header {
+    text-align: center;
+    padding: 1em;
+    margin-bottom: 1em;
+    background-image: url(../images/egypt-fullsize.jpg);
+    background-size: cover;
+    background-position: 0 0;
+}
+.categories {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+    padding: 1em;
+    gap: 1em;
+}
+.categories__item {
+    position: relative;
+    color: inherit;
+    z-index: 0;
+    transition: transform 0.3s;
+    /* max-height: 80vh; */
+}
+
+.categories__item:hover .categories__item-description{
+    bottom: unset;
+    right: unset;
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: max-content;
+}
+
+.categories:has(.categories__item:hover) .categories__item:not(:hover) img, .categories:has(.categories__item:hover) .categories__item::after{
+    filter: blur(7px);
+}
+.categories__item:hover{
+    transform: scale(1.1);
+    z-index: 1;
+}
+.categories__item-image {
+    filter: brightness(0.9) saturate(1) contrast(1);
+}
+.categories__item-description {
+    padding: 1em;
+    position: absolute;
+    bottom: 0;
+}
+.categories__item::after {
+    box-shadow: inset 0px 0px 5px 0 var(--text-white);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border-radius: 20px;
+  }
+
+/* TODO */
+a{
+    border-radius: 20px;
+}
+img{
+    border-radius: 20px;
+}
+
+/* Global */
+.img-responsive {
+    width: 100%;
+    display: block;
+}
+figure, h2 {
+    margin: 0;
+}
+.heading {
+    margin: 0.25em 0;
+    font-weight: bold;
+}
+.heading--h1 {
+    text-transform: uppercase;
+    font-size: 2em;
+}
